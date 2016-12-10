@@ -7,13 +7,15 @@ public interface IArticle {
 	
 	List<String> txt = new LinkedList<>();
 	
-	int getChapter();
+	List<Integer> getChapter();
 	
 	int getNumber();
 	
 	void deletename();
 	
 	void deletedate();
+
+	void addTxt(String txt);
 	
 	
 }

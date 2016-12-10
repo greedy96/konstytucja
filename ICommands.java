@@ -1,9 +1,12 @@
 package lab8;
 
+import java.util.List;
+
+import konstytucja.Article;
+
 public interface ICommands {
 	//wczytyuje  komendy
-	String commands(String[] com);
+	List<Integer> commands(String[] com, List<Integer> chapters);
 	
-	//wykonuje dana komende
-	void doComands(String com);
+	void doComands(List<Integer> com, List<Article> article);
 }

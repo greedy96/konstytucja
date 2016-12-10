@@ -2,11 +2,13 @@ package lab8;
 
 import java.util.List;
 
+import konstytucja.Article;
+
 
 public interface IListBuilder {
 	//tworzymy liste artykulow
-	List<IArticle> makeList(List<String> file);
+	List<Article> makeList(List<String> file);
 	
-	void deleteTxtFromArticle(List<IArticle> arts);
+	void deleteTxtFromArticle(List<Article> articleList);
 	
 }
