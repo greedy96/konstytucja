@@ -1,4 +1,4 @@
-package konstytucja;
+package lab8;
 
 import java.io.File;
 import java.io.IOException;

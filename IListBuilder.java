@@ -2,7 +2,7 @@ package lab8;
 
 import java.util.List;
 
-import konstytucja.Article;
+import lab8.Article;
 
 
 public interface IListBuilder {

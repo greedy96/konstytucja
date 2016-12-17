@@ -1,4 +1,4 @@
-package konstytucja;
+package lab8;
 
 import static org.junit.Assert.*;
 

@@ -1,9 +1,7 @@
-package konstytucja;
+package lab8;
 
 import java.util.LinkedList;
 import java.util.List;
-
-import lab8.ICommands;
 
 public class Commands implements ICommands{
 
@@ -20,11 +18,17 @@ public class Commands implements ICommands{
 	}
 
 	private void insertToListCom(List<Integer> comList, String com, List<Integer> chapters) {
+		try{
 		if(com.toString().toLowerCase().contains("rozdzia³")){
 			String [] newcom2 = com.split("\\.");
-			int x = toDecimal(newcom2[1]);
-			for(Integer i = chapters.get(2-1); i<chapters.get(x); i++){
-				comList.add(i);
+			if(newcom2.length<2){
+				System.out.println("B³êdny wywo³anie argumentu rozdzia³u, poprawne wywo³anie to: Rozdzia³.numer_rozdzia³u\n");
+			}
+			else{
+				int x = toDecimal(newcom2[1]);
+				for(Integer i = chapters.get(2-1); i<chapters.get(x); i++){
+					comList.add(i);
+				}
 			}
 		}
 		else if (com.toString().contains("-")){
@@ -33,7 +37,13 @@ public class Commands implements ICommands{
 				comList.add(i);
 			}
 		}
-		else comList.add(Integer.valueOf(com));
+		else {
+			comList.add(Integer.valueOf(com));
+		}
+		}
+		catch (NumberFormatException xs){
+			throw new NumberFormatException("B³êdny argument: "+xs);
+		}
 	}
 
 	private int toDecimal(String string) {
@@ -63,6 +73,9 @@ public class Commands implements ICommands{
 		coms.sort(null);
 		int last=-1;
 		for (Integer com: coms){
+			if (com>article.size()-1){
+				throw new IndexOutOfBoundsException("Niepoprawny argument: "+com);
+			}
 			if (last!=com)
 				for (int i=0; i<article.get(com).getTxt().size();i++){
 					System.out.println(article.get(com).getTxt().get(i));
