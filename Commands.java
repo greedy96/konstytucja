@@ -26,7 +26,7 @@ public class Commands implements ICommands{
 			}
 			else{
 				int x = toDecimal(newcom2[1]);
-				for(Integer i = chapters.get(2-1); i<chapters.get(x); i++){
+				for(Integer i = chapters.get(x-1); i<chapters.get(x); i++){
 					comList.add(i);
 				}
 			}
