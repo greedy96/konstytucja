@@ -46,9 +46,10 @@ public class Commands implements ICommands{
 		}
 	}
 
+	@SuppressWarnings("finally")
 	private int toDecimal(String string) {
 		int decimal=0;
-		decimal = Integer.valueOf(string);
+		try{
 		for (int i=0; i<string.length(); i++){
 			if(string.toLowerCase().charAt(i)=='x'){
 				decimal+=10;
@@ -65,7 +66,14 @@ public class Commands implements ICommands{
 			decimal-=2;
 		if (string.toLowerCase().contains("ix"))
 			decimal-=2;
-		return decimal;
+		if (decimal == 0) decimal = Integer.valueOf(string);
+		}
+		catch (NumberFormatException ex){
+			System.out.println("B³êdny wywo³anie argumentu rozdzia³u, poprawne wywo³anie to: Rozdzia³.numer_rozdzia³u\n");
+		}
+		finally{
+			return decimal;
+		}
 	}
 
 	@Override
